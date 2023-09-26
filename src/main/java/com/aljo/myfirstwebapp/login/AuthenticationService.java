@@ -1,4 +1,4 @@
-package com.aljo.myfirstwebapp;
+package com.aljo.myfirstwebapp.login;
 
 import org.springframework.stereotype.Service;
 
