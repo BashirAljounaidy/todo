@@ -5,5 +5,6 @@
 	<body>
         <div>Welcome in Aljounaidy</div>
         <div>Your Name is ${name}</div>
+		<div><a href="list-todos">Manage Your todos</a></div>
 	</body>
 </html>
