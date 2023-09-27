@@ -3,7 +3,8 @@
 <%@ include file="common/header.jspf" %>
 <%@ include file="common/navigation.jspf" %>
 <body>
-	<div>Welcome ${name}</div>
+	<div class="container">
+		<h2>Welcome ${name}</h2>
 	<hr>
 	<div><a href="list-todos">Manage Your todos</a>
 	</div>
