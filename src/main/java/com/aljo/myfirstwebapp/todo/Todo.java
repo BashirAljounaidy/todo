@@ -2,7 +2,6 @@ package com.aljo.myfirstwebapp.todo;
 
 import java.time.LocalDate;
 
-import org.hibernate.validator.constraints.Length;
 
 import jakarta.validation.constraints.Size;
 
@@ -22,7 +21,7 @@ public class Todo {
 
 	private int id;
 	private String username;
-    @Length(min=10, message="Enter at least 10 characters")
+    @Size(min=3, message="Enter at least 3 characters")
 	private String description;
 	private LocalDate targetDate;
 	private boolean done;
