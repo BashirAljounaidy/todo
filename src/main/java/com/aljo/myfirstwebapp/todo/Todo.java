@@ -2,64 +2,75 @@ package com.aljo.myfirstwebapp.todo;
 
 import java.time.LocalDate;
 
+import org.hibernate.validator.constraints.Length;
+
+import jakarta.validation.constraints.Size;
+
+//Database (MySQL) 
+//Static List of todos => Database (H2, MySQL)
+
 public class Todo {
-    private int id;
-    private String username;
-    private String description;
-    private LocalDate targetDate;
-    private boolean isDone;
 
-    public Todo(int id, String username, String description, LocalDate targetDate, boolean isDone) {
-        this.id = id;
-        this.username = username;
-        this.description = description;
-        this.targetDate = targetDate;
-        this.isDone = isDone;
-    }
+	public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.description = description;
+		this.targetDate = targetDate;
+		this.done = done;
+	}
 
-    public int getId() {
-        return id;
-    }
+	private int id;
+	private String username;
+    @Length(min=10, message="Enter at least 10 characters")
+	private String description;
+	private LocalDate targetDate;
+	private boolean done;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public LocalDate getTargetDate() {
-        return targetDate;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public void setTargetDate(LocalDate targetDate) {
-        this.targetDate = targetDate;
-    }
+	public LocalDate getTargetDate() {
+		return targetDate;
+	}
 
-    public boolean isDone() {
-        return isDone;
-    }
+	public void setTargetDate(LocalDate targetDate) {
+		this.targetDate = targetDate;
+	}
 
-    public void setDone(boolean isDone) {
-        this.isDone = isDone;
-    }
+	public boolean isDone() {
+		return done;
+	}
 
-    @Override
-    public String toString() {
-        return "Todo [id=" + id + ", username=" + username + ", description=" + description + ", targetDate="
-                + targetDate + ", isDone=" + isDone + "]";
-    }
+	public void setDone(boolean done) {
+		this.done = done;
+	}
+
+	@Override
+	public String toString() {
+		return "Todo [id=" + id + ", username=" + username + ", description=" + description + ", targetDate="
+				+ targetDate + ", done=" + done + "]";
+	}
+
 }
