@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="common/header.jspf" %>
-<%@ include file="common/navigation.jspf" %>	
+<%@ include file="common/navigation.jspf" %>
 	<body>
 		<div class="container">
 			<h1>Enter Todo Details</h1>
