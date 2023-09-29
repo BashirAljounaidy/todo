@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -17,13 +18,18 @@ public class TodoService {
 	private static int todoCount = 0;
 	
 	static {
-		todos.add(new Todo(++todoCount,"aljo","Learn AWS", LocalDate.now().plusYears(1),false));
-        todos.add(new Todo(++todoCount,"aljo","Learn DEVOPS", LocalDate.now().plusYears(2),false));
-        todos.add(new Todo(++todoCount,"aljo","Learn FULLSTACK", LocalDate.now().plusYears(3),false));
+		todos.add(new Todo(++todoCount,"bashir","Learn AWS", LocalDate.now().plusYears(1),false));
+        todos.add(new Todo(++todoCount,"bashir","Learn DEVOPS", LocalDate.now().plusYears(2),false));
+        todos.add(new Todo(++todoCount,"bashir","Learn FULLSTACK", LocalDate.now().plusYears(3),false));
     }
-    public List<Todo> findByUsername(String username){
-		return todos;
+
+	public List<Todo> findByUsername(String username){
+		Predicate<? super Todo> predicate = 
+				todo -> todo.getUsername().equalsIgnoreCase(username);
+		return todos.stream().filter(predicate).toList();
 	}
+	
+
 	public void addTodo(String name, String description , LocalDate targetDate,boolean done) {
 		Todo todo = new Todo(++todoCount,name,description,targetDate,done);
 		todos.add(todo);

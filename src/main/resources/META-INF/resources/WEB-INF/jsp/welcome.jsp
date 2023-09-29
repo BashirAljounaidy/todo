@@ -6,6 +6,7 @@
 	<div class="container">
 		<h2>Welcome ${name}</h2>
 	<hr>
+	<div>Today is : ${date}</div>
 	<div><a href="list-todos">Manage Your todos</a>
 	</div>
 	<script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
