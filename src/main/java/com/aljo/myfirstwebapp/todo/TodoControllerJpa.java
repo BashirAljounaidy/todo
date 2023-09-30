@@ -23,11 +23,9 @@ public class TodoControllerJpa {
 
 	public TodoControllerJpa(TodoService todoService , TodoRepository todoRepository) {
 		super();
-		this.todoService = todoService;
         this.todoRepository = todoRepository;
 	}
 
-	private TodoService todoService;
     private TodoRepository todoRepository;
 
     // @RequestMapping("list-todos")
@@ -64,7 +62,9 @@ public class TodoControllerJpa {
 		}
 
 		String username = getLoggedInUsername(model);
-		todoService.addTodo(username, todo.getDescription(), todo.getTargetDate(), false);
+        todo.setUsername(username);
+        todoRepository.save(todo);
+		// todoService.addTodo(username, todo.getDescription(), todo.getTargetDate(), todo.isDone());
 		return "redirect:list-todos";
 	}
 
@@ -76,13 +76,13 @@ public class TodoControllerJpa {
 	// myEdit
 	@RequestMapping(value = "delete-todo", method = RequestMethod.GET)
 	public String deleteTodo(@RequestParam int id) {
-		todoService.deleteById(id);
+		todoRepository.deleteById(id);
 		return "redirect:list-todos";
 	}
 
 	@RequestMapping(value = "update-todo", method = RequestMethod.GET)
 	public String showUpdateTodoPage(@RequestParam int id, ModelMap model) {
-		Optional<Todo> todo = todoRepository.findById(id);
+		Todo todo = todoRepository.findById(id).get();
 		model.addAttribute("todo", todo);
 		return "todo";
 	}
@@ -94,7 +94,7 @@ public class TodoControllerJpa {
 		}
 		String username = getLoggedInUsername(model);
 		todo.setUsername(username);
-		todoService.updateTodo(todo);
+		todoRepository.save(todo);
 		return "redirect:list-todos";
 	}
 	
