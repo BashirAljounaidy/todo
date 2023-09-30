@@ -11,6 +11,7 @@ import jakarta.validation.constraints.Size;
 //Static List of todos => Database (H2, MySQL)
 @Entity
 public class Todo {
+	public Todo () {}
 
 	public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
 		super();
