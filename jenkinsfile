@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3.6.3-jdk-11' // Use the appropriate Maven image
-            args '-v $HOME/.m2:/root/.m2' // Mount the Maven local repository
+            image 'maven:3.8.3-openjdk-11-slim'
+            args '-v $HOME/.m2:/root/.m2'
         }
     }
     stages {
@@ -24,7 +24,7 @@ pipeline {
     }
     post {
         always {
-            junit '**/target/surefire-reports/*.xml' // Adjust the path to your test reports
+            junit '**/target/surefire-reports/*.xml'
         }
     }
 }
