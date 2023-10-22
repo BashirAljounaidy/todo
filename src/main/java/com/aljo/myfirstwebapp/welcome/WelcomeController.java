@@ -1,4 +1,4 @@
-package com.aljo.myfirstwebapp.login;
+package com.aljo.myfirstwebapp.welcome;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
