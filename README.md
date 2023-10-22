@@ -29,7 +29,6 @@ The Todo Application is designed to provide users with a convenient way to manag
 - Java
 - Spring Boot
 - Spring Data JPA
-- Thymeleaf
 - H2 Database
 - Maven
 
